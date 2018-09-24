@@ -1,3 +1,4 @@
+const filterByProperty = require("../lib/filterByProperty");
 const cars = require("../data/cars");
 
 function getCar(req, res) {
@@ -10,16 +11,27 @@ function getCar(req, res) {
   } else {
     res.sendStatus(404);
   }
-};
+}
 
 function getCars(req, res) {
-  const {
-    brand,
-    color,
-    price,
-  } = req.query;
+  let { brand, color, sort } = req.query;
 
-  res.json({ cars });
+  let filteredCars = cars;
+
+  filteredCars = filterByProperty('brand', brand, filteredCars);
+  filteredCars = filterByProperty('color', color, filteredCars);
+
+  if (['asc', 'des'].includes(sort)) {
+    filteredCars = filteredCars.sort(function(a, b) {
+      if (sort === 'asc') {
+        return a.price - b.price;
+      }
+      
+      return b.price - a.price;
+    });
+  }
+
+  res.json({ cars: filteredCars });
 }
 
 module.exports = { getCar, getCars };

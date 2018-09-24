@@ -10,7 +10,7 @@ for (var i = 0; i < 1000; i++) {
     id: i,
     brand: Random.getRandomItemFromCollection(brands),
     color: Random.getRandomItemFromCollection(colors),
-    price: Random.getRandomNumber(1000),
+    price: Random.getRandomNumber(100000),
   });
 }
 
