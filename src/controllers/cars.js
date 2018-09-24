@@ -1,4 +1,5 @@
 const filterByProperty = require("../lib/filterByProperty");
+const paginate = require("../lib/paginate");
 const cars = require("../data/cars");
 
 function getCar(req, res) {
@@ -14,7 +15,7 @@ function getCar(req, res) {
 }
 
 function getCars(req, res) {
-  let { brand, color, sort } = req.query;
+  let { brand, color, sort, page } = req.query;
 
   let filteredCars = cars;
 
@@ -31,7 +32,12 @@ function getCars(req, res) {
     });
   }
 
-  res.json({ cars: filteredCars });
+  const itemsPerPage = 10;
+
+  res.json({
+    cars: paginate(filteredCars, itemsPerPage, Number(page || 1)),
+    totalPageCount: Math.ceil(filteredCars.length / itemsPerPage)
+  });
 }
 
 module.exports = { getCar, getCars };

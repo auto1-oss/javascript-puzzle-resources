@@ -13,3 +13,5 @@ function filterByProperty(propertyName, propertyValue, collection) {
 
   return collection;
 }
+
+module.exports = filterByProperty;
