@@ -25,10 +25,10 @@ function getCars(req, res) {
   if (['asc', 'des'].includes(sort)) {
     filteredCars = filteredCars.sort(function(a, b) {
       if (sort === 'asc') {
-        return a.price - b.price;
+        return a.mileage - b.mileage;
       }
       
-      return b.price - a.price;
+      return b.mileage - a.mileage;
     });
   }
 
