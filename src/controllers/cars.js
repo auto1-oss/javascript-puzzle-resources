@@ -15,11 +15,11 @@ function getCar(req, res) {
 }
 
 function getCars(req, res) {
-  let { brand, color, sort, page } = req.query;
+  let { manufacturer, color, sort, page } = req.query;
 
   let filteredCars = cars;
 
-  filteredCars = filterByProperty('brand', brand, filteredCars);
+  filteredCars = filterByProperty('manufacturer', manufacturer, filteredCars);
   filteredCars = filterByProperty('color', color, filteredCars);
 
   if (['asc', 'des'].includes(sort)) {
