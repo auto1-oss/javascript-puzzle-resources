@@ -23,11 +23,11 @@ function getCars(req, res) {
   filteredCars = filterByProperty('color', color, filteredCars);
 
   if (['asc', 'des'].includes(sort)) {
-    filteredCars = filteredCars.sort(function(a, b) {
+    filteredCars.sort(function(a, b) {
       if (sort === 'asc') {
         return a.mileage - b.mileage;
       }
-      
+
       return b.mileage - a.mileage;
     });
   }
