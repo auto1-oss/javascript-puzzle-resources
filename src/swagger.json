@@ -7,6 +7,10 @@
   },
   "components": {
     "schemas": {
+      "Color": {
+        "type": "string",
+        "example": "white"
+      },
       "Manufacturer": {
         "type": "object",
         "properties": {
@@ -30,35 +34,44 @@
         "type": "object",
         "properties": {
           "stockNumber": {
-            "type": "integer"
+            "type": "integer",
+            "maximum": 99999,
+            "minimum": 10000,
+            "example": 41400
           },
           "manufacturerName": {
-            "type": "string"
+            "type": "string",
+            "example": "Fiat"
           },
           "modelName": {
-            "type": "string"
+            "type": "string",
+            "example": "Marea"
           },
           "mileage": {
             "type": "object",
             "properties": {
               "number": {
-                "type": "integer"
+                "type": "integer",
+                "maximum": 199999,
+                "minimum": 99999,
+                "example": 100141
               },
               "unit": {
                 "type": "string",
-                "oneOf": ["km", "mi"]
+                "enum": ["km", "mi"]
               }
             }
           },
           "fuelType": {
             "type": "string",
-            "oneOf": ["Diesel", "Petrol"]
+            "enum": ["Diesel", "Petrol"]
           },
           "color": {
-            "type": "string"
+            "$ref": "#/components/schemas/Color"
           },
           "pictureUrl": {
-            "type": "string"
+            "type": "string",
+            "example": "http://localhost:3001/car.svg"
           }
         }
       }
@@ -66,13 +79,80 @@
   },
   "paths": {
     "/cars": {
-      "get": {}
+      "get": {
+        "description": "Returns all the cars",
+        "responses": {
+          "200": {
+            "description": "A list of cars.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "cars": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Car"
+                      }
+                    },
+                    "totalPageCount": {
+                      "type": "number",
+                      "example": 10
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     },
     "/cars/{stockNumber}": {
-      "get": {}
+      "get": {
+        "description": "Returns one car",
+        "responses": {
+          "200": {
+            "description": "A car",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "car": {
+                      "$ref": "#/components/schemas/Car"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     },
     "/colors": {
-      "get": {}
+      "get": {
+        "description": "Returns all the colors",
+        "responses": {
+          "200": {
+            "description": "A list of colors",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "colors": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Color"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     },
     "/manufacturers": {
       "get": {}
