@@ -19,16 +19,16 @@ function getCars(req, res) {
 
   let filteredCars = cars;
 
-  filteredCars = filterByProperty('manufacturer', manufacturer, filteredCars);
-  filteredCars = filterByProperty('color', color, filteredCars);
+  filteredCars = filterByProperty('manufacturerName', manufacturer, filteredCars);
+  filteredCars = filterByProperty('colorName', color, filteredCars);
 
   if (['asc', 'des'].includes(sort)) {
     filteredCars.sort(function(a, b) {
       if (sort === 'asc') {
-        return a.mileage - b.mileage;
+        return a.mileage.number - b.mileage.number;
       }
 
-      return b.mileage - a.mileage;
+      return b.mileage.number - a.mileage.number;
     });
   } else {
     filteredCars.sort(function(a, b) {
