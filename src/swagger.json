@@ -7,14 +7,6 @@
   },
   "components": {
     "schemas": {
-      "Model": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          }
-        }
-      },
       "Manufacturer": {
         "type": "object",
         "properties": {
@@ -24,7 +16,12 @@
           "models": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Model"
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                }
+              }
             }
           }
         }
