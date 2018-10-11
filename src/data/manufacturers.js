@@ -39,4 +39,9 @@ module.exports = [
     name: "Volkswagen",
     models: ["Amarok", "Arteon", "Beetle / New Beetle", "Bora", "CC", "Caddy", "Corrado", "Crafter", "Derby", "Eos", "Fox", "Golf I", "Golf II", "Golf III", "Golf IV", "Golf Plus", "Golf V", "Golf VI", "Golf VII", "Golf VII Sportsvan", "Jetta", "Kaefer 1200", "LT", "Lupo", "Passat", "Phaeton", "Polo", "Santana", "Scirocco", "Scirocco II", "Sharan", "T-Roc", "T3", "T4", "T5", "T6", "Taro", "Tiguan", "Tiguan Allspace", "Touareg", "Touran", "Vento"]
   }
-];
+].map(manufacturer => ({
+  ...manufacturer,
+  models: manufacturer.models.map(modelString => ({
+    name: modelString,
+  })),
+}));

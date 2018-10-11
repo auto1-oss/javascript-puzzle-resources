@@ -4,7 +4,7 @@ const cars = require("../data/cars");
 
 function getCar(req, res) {
   const car = cars.find(function(eachCar) {
-    return eachCar.id == req.params.carId;
+    return eachCar.stockNumber == req.params.stockNumber;
   });
 
   if (car) {
@@ -29,6 +29,10 @@ function getCars(req, res) {
       }
 
       return b.mileage - a.mileage;
+    });
+  } else {
+    filteredCars.sort(function(a, b) {
+      return a.stockNumber - b.stockNumber;
     });
   }
 
