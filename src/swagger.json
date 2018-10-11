@@ -66,5 +66,19 @@
         }
       }
     }
+  },
+  "paths": {
+    "/cars": {
+      "get": {}
+    },
+    "/cars/{stockNumber}": {
+      "get": {}
+    },
+    "/colors": {
+      "get": {}
+    },
+    "/manufacturers": {
+      "get": {}
+    }
   }
 }
