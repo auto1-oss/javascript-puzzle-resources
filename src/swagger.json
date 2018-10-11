@@ -29,9 +29,6 @@
           }
         }
       },
-      "Color": {
-        "type": "string"
-      },
       "Car": {
         "type": "object",
         "properties": {
@@ -61,7 +58,7 @@
             "oneOf": ["Diesel", "Petrol"]
           },
           "color": {
-            "$ref": "#/components/schemas/Color"
+            "type": "string"
           },
           "pictureUrl": {
             "type": "string"
