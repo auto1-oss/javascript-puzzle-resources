@@ -4,5 +4,70 @@
     "title": "Cars API",
     "description": "This is a server for cars",
     "version": "1.0.0"
+  },
+  "components": {
+    "schemas": {
+      "Model": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "Manufacturer": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "models": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Model"
+            }
+          }
+        }
+      },
+      "Color": {
+        "type": "string"
+      },
+      "Car": {
+        "type": "object",
+        "properties": {
+          "stockNumber": {
+            "type": "integer"
+          },
+          "manufacturerName": {
+            "type": "string"
+          },
+          "modelName": {
+            "type": "string"
+          },
+          "mileage": {
+            "type": "object",
+            "properties": {
+              "number": {
+                "type": "integer"
+              },
+              "unit": {
+                "type": "string",
+                "oneOf": ["km", "mi"]
+              }
+            }
+          },
+          "fuelType": {
+            "type": "string",
+            "oneOf": ["Diesel", "Petrol"]
+          },
+          "color": {
+            "$ref": "#/components/schemas/Color"
+          },
+          "pictureUrl": {
+            "type": "string"
+          }
+        }
+      }
+    }
   }
 }
