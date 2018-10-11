@@ -17,7 +17,7 @@ for (var i = 0; i < 1000; i++) {
     stockNumber,
     manufacturerName: manufacturer.name,
     modelName: model.name,
-    colorName: color.name,
+    color,
     mileage: {
       number: mileageNumber,
       unit: 'km',

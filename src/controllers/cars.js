@@ -20,7 +20,7 @@ function getCars(req, res) {
   let filteredCars = cars;
 
   filteredCars = filterByProperty('manufacturerName', manufacturer, filteredCars);
-  filteredCars = filterByProperty('colorName', color, filteredCars);
+  filteredCars = filterByProperty('color', color, filteredCars);
 
   if (['asc', 'des'].includes(sort)) {
     filteredCars.sort(function(a, b) {
