@@ -1,0 +1,8 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Cars API",
+    "description": "This is a server for cars",
+    "version": "1.0.0"
+  }
+}
