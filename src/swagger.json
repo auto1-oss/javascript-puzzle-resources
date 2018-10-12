@@ -85,7 +85,7 @@
         "description": "Returns all the cars",
         "responses": {
           "200": {
-            "description": "A list of cars.",
+            "description": "A list of cars",
             "content": {
               "application/json": {
                 "schema": {
