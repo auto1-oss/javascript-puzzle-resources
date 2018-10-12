@@ -1,5 +1,5 @@
 {
-  "name": "auto1-cars-mock-server",
+  "name": "cars-mock-server",
   "version": "1.0.0",
   "description": "Mock server for cars listing and filtering",
   "main": "src/index.js",
@@ -8,7 +8,7 @@
   },
   "keywords": [],
   "author": {
-    "name": "Auto1 Group GmbH",
+    "name": "AUTO1 Group GmbH",
     "url": "https://www.auto1-group.com/"
   },
   "contributors": [
