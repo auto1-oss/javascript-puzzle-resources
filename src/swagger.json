@@ -183,7 +183,18 @@
               }
             }
           }
-        }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "stockNumber",
+            "schema": {
+              "type": "integer"
+            },
+            "required": true,
+            "description": "The unique stock number of a car"
+          }
+        ]
       }
     },
     "/colors": {
