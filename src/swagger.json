@@ -106,7 +106,51 @@
               }
             }
           }
-        }
+        },
+        "parameters": [
+          {
+            "in": "query",
+            "name": "manufacturer",
+            "schema": {
+              "type": "string"
+            },
+            "required": false,
+            "description": "The manufacturer to filter by",
+            "example": "Fiat"
+          },
+          {
+            "in": "query",
+            "name": "color",
+            "schema": {
+              "type": "string"
+            },
+            "required": false,
+            "description": "The color to filter by",
+            "example": "white"
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "schema": {
+              "type": "string",
+              "example": "asc",
+              "enum": ["asc", "des"]
+            },
+            "required": false,
+            "description": "When this parameter is present the cars are sorted by mileage. The value of this parameter defines the sorting order"
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "example": 1
+            },
+            "required": false,
+            "description": "Results are paginated. This parameter defines the number of the page to return"
+          }
+        ]
       }
     },
     "/cars/{stockNumber}": {
