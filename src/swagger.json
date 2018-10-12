@@ -15,7 +15,8 @@
         "type": "object",
         "properties": {
           "name": {
-            "type": "string"
+            "type": "string",
+            "example": "Fiat"
           },
           "models": {
             "type": "array",
@@ -23,7 +24,8 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "type": "string"
+                  "type": "string",
+                  "example": "Marea"
                 }
               }
             }
@@ -155,7 +157,29 @@
       }
     },
     "/manufacturers": {
-      "get": {}
+      "get": {
+        "description": "Returns all the manufacturers",
+        "responses": {
+          "200": {
+            "description": "A list of car manufacturers",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "manufacturers": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Manufacturer"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
