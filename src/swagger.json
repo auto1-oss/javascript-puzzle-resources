@@ -127,6 +127,17 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "A car with the specified stock number was not found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "example": "Not Found"
+                }
+              }
+            }
           }
         }
       }
