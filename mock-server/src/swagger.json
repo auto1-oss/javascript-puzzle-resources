@@ -99,7 +99,11 @@
                     },
                     "totalPageCount": {
                       "type": "number",
-                      "example": 10
+                      "example": 2
+                    },
+                    "totalCarsCount": {
+                      "type": "number",
+                      "example": 16
                     }
                   }
                 }
